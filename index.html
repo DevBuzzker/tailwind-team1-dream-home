@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="widgth=device-width, initial-scale=1.0">
   <title>Dwello</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -39,11 +39,18 @@
       { slot: 'slot-footer', file: './07-footer.html' },
     ];
 
-    sections.forEach(({ slot, file }) => {
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem('scrollY', window.scrollY);
+    });
+
+    Promise.all(sections.map(({ slot, file }) =>
       fetch(file)
         .then(r => r.text())
         .then(html => { document.getElementById(slot).innerHTML = html; })
-        .catch(() => { document.getElementById(slot).innerHTML = `<p class="p-4 text-red-500">Failed to load ${file}</p>`; });
+        .catch(() => { document.getElementById(slot).innerHTML = `<p class="p-4 text-red-500">Failed to load ${file}</p>`; })
+    )).then(() => {
+      const y = sessionStorage.getItem('scrollY');
+      if (y) window.scrollTo({ top: parseInt(y), behavior: 'instant' });
     });
   </script>
 </body>
