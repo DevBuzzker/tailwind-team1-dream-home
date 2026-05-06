@@ -12,10 +12,6 @@
 </head>
 
 <body>
-  <!-- Comment with CTRL-# sections here to show the
-  section you are working on - on top 
-  so the preview doesnt scroll and you test faster
-  -->
   <div id="slot-navbar"></div>
   <div id="slot-hero"></div>
   <div id="slot-location"></div>
@@ -39,6 +35,7 @@
       { slot: 'slot-footer', file: './07-footer.html' },
     ];
 
+    // this allows editing child html without scrolling to bottom
     window.addEventListener('beforeunload', () => {
       sessionStorage.setItem('scrollY', window.scrollY);
     });
