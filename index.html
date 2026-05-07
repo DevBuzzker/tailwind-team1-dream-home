@@ -1,55 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="widgth=device-width, initial-scale=1.0" />
+    <title>Dwello</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss"></style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="widgth=device-width, initial-scale=1.0">
-  <title>Dwello</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <style type="text/tailwindcss">
-  </style>
-</head>
+  <body>
+    <div id="slot-navbar"></div>
+    <div id="slot-hero"></div>
+    <div id="slot-location"></div>
+    <div id="slot-help"></div>
+    <div id="slot-why"></div>
+    <div id="slot-residences"></div>
+    <div id="slot-testimonials"></div>
+    <div id="slot-faq"></div>
+    <div id="slot-footer"></div>
 
-<body>
-  <div id="slot-navbar"></div>
-  <div id="slot-hero"></div>
-  <div id="slot-location"></div>
-  <div id="slot-help"></div>
-  <div id="slot-why"></div>
-  <div id="slot-residences"></div>
-  <div id="slot-testimonials"></div>
-  <div id="slot-faq"></div>
-  <div id="slot-footer"></div>
+    <script>
+      const sections = [
+        { slot: "slot-navbar", file: "./01-navbar.html" },
+        { slot: "slot-hero", file: "./02-3-hero.html" },
+        { slot: "slot-location", file: "./02-6-location-signup.html" },
+        { slot: "slot-help", file: "./03-3-we-help.html" },
+        { slot: "slot-why", file: "./03-6-why-choose-us.html" },
+        { slot: "slot-residences", file: "./04-residences.html" },
+        { slot: "slot-testimonials", file: "./05-testimonials.html" },
+        { slot: "slot-faq", file: "./06-faq-contact.html" },
+        { slot: "slot-footer", file: "./07-footer.html" },
+      ];
 
-  <script>
-    const sections = [
-      { slot: 'slot-navbar', file: './01-navbar.html' },
-      { slot: 'slot-hero', file: './02-3-hero.html' },
-      { slot: 'slot-location', file: './02-6-location-signup.html' },
-      { slot: 'slot-help', file: './03-3-we-help.html' },
-      { slot: 'slot-why', file: './03-6-why-choose-us.html' },
-      { slot: 'slot-residences', file: './04-residences.html' },
-      { slot: 'slot-testimonials', file: './05-testimonials.html' },
-      { slot: 'slot-faq', file: './06-faq-contact.html' },
-      { slot: 'slot-footer', file: './07-footer.html' },
-    ];
+      // this allows editing child html without scrolling to bottom
+      window.addEventListener("beforeunload", () => {
+        sessionStorage.setItem("scrollY", window.scrollY);
+      });
 
-    // this allows editing child html without scrolling to bottom
-    window.addEventListener('beforeunload', () => {
-      sessionStorage.setItem('scrollY', window.scrollY);
-    });
-
-    Promise.all(sections.map(({ slot, file }) =>
-      fetch(file)
-        .then(r => r.text())
-        .then(html => { document.getElementById(slot).innerHTML = html; })
-        .catch(() => { document.getElementById(slot).innerHTML = `<p class="p-4 text-red-500">Failed to load ${file}</p>`; })
-    )).then(() => {
-      const y = sessionStorage.getItem('scrollY');
-      if (y) window.scrollTo({ top: parseInt(y), behavior: 'instant' });
-    });
-  </script>
-</body>
-
+      Promise.all(
+        sections.map(({ slot, file }) =>
+          fetch(file)
+            .then((r) => r.text())
+            .then((html) => {
+              document.getElementById(slot).innerHTML = html;
+            })
+            .catch(() => {
+              document.getElementById(slot).innerHTML =
+                `<p class="p-4 text-red-500">Failed to load ${file}</p>`;
+            }),
+        ),
+      ).then(() => {
+        const y = sessionStorage.getItem("scrollY");
+        if (y) window.scrollTo({ top: parseInt(y), behavior: "instant" });
+      });
+    </script>
+  </body>
 </html>
