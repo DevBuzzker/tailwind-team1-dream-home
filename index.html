@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -49,14 +50,48 @@
               document.getElementById(slot).innerHTML = html;
             })
             .catch(() => {
-              document.getElementById(slot).innerHTML =
-                `<p class="p-4 text-red-500">Failed to load ${file}</p>`;
+              document.getElementById(slot).innerHTML = `<p class="p-4 text-red-500">Failed to load ${file}</p>`;
             }),
         ),
       ).then(() => {
         const y = sessionStorage.getItem("scrollY");
         if (y) window.scrollTo({ top: parseInt(y), behavior: "instant" });
+        createTestimonialsCarousel();
       });
+
+      function createTestimonialsCarousel() {
+        const carousels = document.querySelectorAll(".testimonials-carousel");
+
+        carousels.forEach((element) => {
+          const carouselViewport = element.querySelector(".carousel-viewport");
+          let carouselWidth = carouselViewport.clientWidth;
+          const btnNext = element.querySelector(".btn-next");
+          const btnPrev = element.querySelector(".btn-prev");
+
+          if (!carouselViewport || !btnNext || !btnPrev) {
+            console.warn("Carousel missing required elements");
+            return;
+          }
+
+          btnNext.addEventListener("click", () => {
+            const currentScroll = carouselViewport.scrollLeft;
+            let nextScroll = currentScroll + carouselWidth;
+            carouselViewport.scrollTo({
+              left: nextScroll,
+              behavior: "smooth",
+            });
+          });
+
+          btnPrev.addEventListener("click", () => {
+            const currentScroll = carouselViewport.scrollLeft;
+            let nextScroll = currentScroll - carouselWidth;
+            carouselViewport.scrollTo({
+              left: nextScroll,
+              behavior: "smooth",
+            });
+          });
+        });
+      }
     </script>
   </body>
 </html>
