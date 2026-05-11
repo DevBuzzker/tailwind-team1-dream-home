@@ -1,7 +1,32 @@
-<nav
-  id="section-navbar"
-  class="bg-blue-600 text-white px-8 py-4 flex items-center justify-between"
->
-  <span class="font-bold text-xl">Dwello</span>
-  <span class="text-sm opacity-75">01 — Navbar placeholder</span>
-</nav>
+<header class="fixed top-0 left-0 w-full z-50">
+  <nav
+    class="w-full px-6 py-4 bg-white/10 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)]"
+  >
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="text-xl font-bold tracking-wide">LOGO</div>
+
+      <!-- Navigation -->
+      <ul class="hidden md:flex items-center gap-10 text-sm text-[#FBDCFF]">
+        <li><a href="#" class="hover:text-white transition">Home</a></li>
+        <li><a href="#" class="hover:text-white transition">Service</a></li>
+        <li><a href="#" class="hover:text-white transition">Agents</a></li>
+        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+      </ul>
+
+      <!-- Right -->
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-3 text-[#FBDCFF]">
+          <button class="hover:text-white transition">🔍</button>
+          <button class="hover:text-white transition">👤</button>
+        </div>
+
+        <button
+          class="px-5 py-2 rounded-xl text-sm font-medium bg-white/10 backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_6px_20px_rgba(0,0,0,0.2)] hover:bg-white/20 hover:-translate-y-0.5 transition"
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
