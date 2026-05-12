@@ -1,44 +1,93 @@
+
+
 <!-- LOCATION BAR -->
 
-<div class="mt-16">
+<div class="ml-20 mr-20">
   <div
     class="p-5 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)]"
   >
     <div class="grid md:grid-cols-4 gap-4">
-      <!-- BOX 1 -->
 
-      <div
-        class="px-5 py-4 rounded-2xl flex items-center justify-between bg-white/10 backdrop-blur-xl border border-white/10 text-[#FBDCFF]"
-      >
-        <span>Location</span>
-        <span>📍</span>
+      <!-- LOCATION -->
+      <div class="relative">
+        <button onclick="toggle('location')"
+          class="w-full px-5 py-4 rounded-2xl flex items-center justify-between bg-white/10 border border-white/10 text-[#FBDCFF]">
+          <span id="locationText">Location</span>
+          <span>📍</span>
+        </button>
+
+        <div id="locationMenu"
+          class="hidden absolute z-20 mt-2 w-full rounded-2xl bg-[#10004F]/90 backdrop-blur-xl border border-white/10 overflow-hidden">
+
+          <div onclick="select('location', 'Beverly Hills')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">Beverly Hills</div>
+
+          <div onclick="select('location', 'Hollywood Hills')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">Hollywood Hills</div>
+
+          <div onclick="select('location', 'Bel Air')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">Bel Air</div>
+
+          <div onclick="select('location', 'Malibu')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">Malibu</div>
+
+        </div>
       </div>
 
-      <!-- BOX 2 -->
+      <!-- TYPE -->
+      <div class="relative">
+        <button onclick="toggle('type')"
+          class="w-full px-5 py-4 rounded-2xl flex items-center justify-between bg-white/10 border border-white/10 text-[#FBDCFF]">
+          <span id="typeText">Type</span>
+          <span>🏠</span>
+        </button>
 
-      <div
-        class="px-5 py-4 rounded-2xl flex items-center justify-between bg-white/10 backdrop-blur-xl border border-white/10 text-[#FBDCFF]"
-      >
-        <span>Location</span>
-        <span>📍</span>
+        <div id="typeMenu"
+          class="hidden absolute z-20 mt-2 w-full rounded-2xl bg-[#10004F]/90 backdrop-blur-xl border border-white/10 overflow-hidden">
+
+          <div onclick="select('type', 'House 🏠')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">House</div>
+
+          <div onclick="select('type', 'Apartment 🏢')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">Apartment</div>
+
+          <div onclick="select('type', 'Mansion 🏰')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">Mansion</div>
+
+        </div>
       </div>
 
-      <!-- BOX 3 -->
+      <!-- PRICE -->
+      <div class="relative">
+        <button onclick="toggle('price')"
+          class="w-full px-5 py-4 rounded-2xl flex items-center justify-between bg-white/10 border border-white/10 text-[#FBDCFF]">
+          <span id="priceText">Price Range</span>
+          <span>💰</span>
+        </button>
 
-      <div
-        class="px-5 py-4 rounded-2xl flex items-center justify-between bg-white/10 backdrop-blur-xl border border-white/10 text-[#FBDCFF]"
-      >
-        <span>Location</span>
-        <span>📍</span>
+        <div id="priceMenu"
+          class="hidden absolute z-20 mt-2 w-full rounded-2xl bg-[#10004F]/90 backdrop-blur-xl border border-white/10 overflow-hidden">
+
+          <div onclick="select('price', '$200k – $500k')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">$200k – $500k</div>
+
+          <div onclick="select('price', '$500k – $1.5M')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">$500k – $1.5M</div>
+
+          <div onclick="select('price', '$1.5M – $5M+')"
+            class="px-4 py-3 hover:bg-white/10 text-white cursor-pointer">$1.5M – $5M+</div>
+
+        </div>
       </div>
 
       <!-- BUTTON -->
-
       <button
-        class="px-5 py-4 rounded-2xl font-semibold bg-white/10 backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_6px_20px_rgba(0,0,0,0.2)] hover:bg-white/20 hover:-translate-y-1 transition"
+        class="px-5 py-4 rounded-2xl font-semibold text-white bg-white/10 backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_6px_20px_rgba(0,0,0,0.2)] hover:bg-white/20 hover:-translate-y-1 transition"
       >
-        Sign up
+        Search
       </button>
+
     </div>
   </div>
 </div>
+
