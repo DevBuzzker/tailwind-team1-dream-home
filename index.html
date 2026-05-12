@@ -162,6 +162,42 @@
           carouselWidth = carouselViewport.clientWidth;
         });
       }
+
+      // Dropdown logic for location, type, and price filters
+
+      document.addEventListener("DOMContentLoaded", () => {
+        function toggle(type) {
+          const menus = ["location", "type", "price"];
+
+          menus.forEach((m) => {
+            const el = document.getElementById(m + "Menu");
+            if (el && m !== type) el.classList.add("hidden");
+          });
+
+          const current = document.getElementById(type + "Menu");
+          if (current) current.classList.toggle("hidden");
+        }
+
+        function select(type, value) {
+          const text = document.getElementById(type + "Text");
+          const menu = document.getElementById(type + "Menu");
+
+          if (text) text.innerText = value;
+          if (menu) menu.classList.add("hidden");
+        }
+
+        window.toggle = toggle;
+        window.select = select;
+
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".relative")) {
+            ["locationMenu", "typeMenu", "priceMenu"].forEach((id) => {
+              const el = document.getElementById(id);
+              if (el) el.classList.add("hidden");
+            });
+          }
+        });
+      });
     </script>
   </body>
 </html>
