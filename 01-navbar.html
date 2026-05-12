@@ -1,17 +1,24 @@
 <header class="fixed top-0 left-0 w-full z-50">
   <nav
-    class="w-full px-6 py-4 bg-white/10 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)]"
+    class="w-full px-6 py-1 bg-white/10 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)]"
   >
     <div class="flex items-center justify-between">
+
       <!-- Logo -->
-      <div class="text-xl font-bold tracking-wide">LOGO</div>
+      <div class="flex items-center max-h-40 md:h-20">
+        <img
+          src="assets/images/logo1.png"
+          alt="Logo"
+          class="h-full w-auto object-contain"
+        />
+      </div>
 
       <!-- Navigation -->
       <ul class="hidden md:flex items-center gap-10 text-sm text-[#FBDCFF]">
-        <li><a href="#" class="hover:text-white transition">Home</a></li>
-        <li><a href="#" class="hover:text-white transition">Service</a></li>
-        <li><a href="#" class="hover:text-white transition">Agents</a></li>
-        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+        <li><a href="#" class="hover:text-white hover:scale-110 transition-transform duration-200 inline-block">Home</a></li>
+        <li><a href="#" class="hover:text-white hover:scale-110 transition-transform duration-200 inline-block">Service</a></li>
+        <li><a href="#" class="hover:text-white hover:scale-110 transition-transform duration-200 inline-block">Agents</a></li>
+        <li><a href="#" class="hover:text-white hover:scale-110 transition-transform duration-200 inline-block">Contact</a></li>
       </ul>
 
       <!-- Right -->
@@ -22,11 +29,12 @@
         </div>
 
         <button
-          class="px-5 py-2 rounded-xl text-sm font-medium bg-white/10 backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_6px_20px_rgba(0,0,0,0.2)] hover:bg-white/20 hover:-translate-y-0.5 transition"
+          class="px-5 py-2 text-white rounded-xl text-sm font-medium bg-white/10 backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_6px_20px_rgba(0,0,0,0.2)] hover:bg-white/20 hover:-translate-y-0.5 transition"
         >
           Sign up
         </button>
       </div>
+
     </div>
   </nav>
 </header>
